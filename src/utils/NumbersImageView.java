@@ -43,7 +43,7 @@ public enum NumbersImageView {
 
 	}
 
-	private class NumberImageView implements IImageViewAble {
+	public class NumberImageView implements IImageViewAble {
 
 		private int number = -1;
 

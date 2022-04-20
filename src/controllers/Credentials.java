@@ -37,8 +37,8 @@ public enum Credentials {
 
 		// card
 
-		y = 300;
-		x = 410 * 300 / 574;
+		y = 320;
+		x = 410 * y / 574;
 		this.dCard = new Vector2(x, y);
 
 		// frame
@@ -79,6 +79,8 @@ public enum Credentials {
 		y = this.gapBetweenBorders;
 		y += this.dCard.y / 2;
 		this.cDeckCastle = new Vector2(x, y);
+		
+		this.dFrame.print();
 
 	}
 

@@ -16,7 +16,9 @@ import javafx.stage.WindowEvent;
 import utils.Animation;
 import utils.Enums.MapImageViews;
 import utils.Flow;
+import utils.Interfaces.IImageViewAble;
 import utils.Logger;
+import utils.NumbersImageView.NumberImageView;
 import utils.ObjectPool;
 import utils.ShutDown;
 import utils.Text;
@@ -25,7 +27,7 @@ import utils.Vector2;
 public class Regicide extends Application {
 
 	private Vector2 dimensionsInsets = new Vector2(16, 39);
-	private double pixesOnTheLeft = 180 - 60;
+	private double pixesOnTheLeft = 180;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -50,7 +52,6 @@ public class Regicide extends Application {
 		primaryStage.setX(
 				(Screen.getPrimary().getBounds().getWidth() - width) / 2 - this.pixesOnTheLeft);
 		primaryStage.setY((Screen.getPrimary().getBounds().getHeight() - height) / 2);
-//		primaryStage.setY(0);
 
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
@@ -69,8 +70,19 @@ public class Regicide extends Application {
 		InstantiateComponents.INSTANCE.instantiate();
 
 		Logger.INSTANCE.log("instantiated");
-		Logger.INSTANCE
-				.log("imageviews -> " + (MapImageViews.INSTANCE.getImageViewsMap().size() - 1));
+
+		// image views
+
+		int size = 0;
+
+		for (IImageViewAble imageViewAble : MapImageViews.INSTANCE.getImageViewsMap())
+			if (!(imageViewAble instanceof NumberImageView))
+				size++;
+
+		Logger.INSTANCE.log("imageviews -> " + (size - 1));
+
+		//
+
 		Logger.INSTANCE.log("lists -> " + Lists.INSTANCE.lists.size());
 		Logger.INSTANCE.newLine();
 

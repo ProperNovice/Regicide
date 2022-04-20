@@ -37,10 +37,13 @@ public enum InstantiateComponents {
 					Lists.INSTANCE.deckCastle.getArrayList().addLast(new CardCastle(eSuit, eValue));
 
 			}
-		
+
+		Lists.INSTANCE.deckTavern.getArrayList().saveOriginal();
+		Lists.INSTANCE.deckCastle.getArrayList().saveOriginal();
+
 		Lists.INSTANCE.deckTavern.relocateImageViews();
 		Lists.INSTANCE.deckCastle.relocateImageViews();
-		
+
 	}
 
 }

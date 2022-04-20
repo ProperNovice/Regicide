@@ -1,11 +1,13 @@
 package utils;
 
+import utils.Interfaces.IUpdateAble;
+
 public class ArrayListImageView<T> extends ArrayList<T> {
 
-	private Runnable showListSize = null;
+	private IUpdateAble updateAble = null;
 
-	public ArrayListImageView(Runnable showListSize) {
-		this.showListSize = showListSize;
+	public ArrayListImageView(IUpdateAble updateAble) {
+		this.updateAble = updateAble;
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	public T remove(int index) {
 
 		T t = super.remove(index);
-		this.showListSize.run();
+		update();
 
 		return t;
 
@@ -45,14 +47,14 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	@Override
 	public void remove(T t) {
 		super.remove(t);
-		this.showListSize.run();
+		update();
 	}
 
 	@Override
 	public T removeRandom() {
 
 		T t = super.removeRandom();
-		this.showListSize.run();
+		update();
 
 		return t;
 
@@ -61,8 +63,12 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	private void runDuplicateProtection() {
 
 		RealTimeDuplicateProtection.INSTANCE.executeDuplicateProtect();
-		this.showListSize.run();
+		update();
 
+	}
+
+	private void update() {
+		AnimationTimerFX.INSTANCE.updateNextFrame(this.updateAble);
 	}
 
 }
