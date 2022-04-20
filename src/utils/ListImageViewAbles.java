@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import controllers.Credentials;
 import controllers.Lists;
-import listCredentials.AListCredentials;
 import utils.Enums.AnimationSynchEnum;
 import utils.Enums.ImageViewActionEnum;
 import utils.Interfaces.IImageViewAble;
@@ -14,11 +13,10 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 	private ArrayListImageView<T> arrayList = new ArrayListImageView<T>(() -> showListSize());
 	private ArrayList<IImageViewAble> quantityImageViewAbles = new ArrayList<>();
 	private CoordinatesList<T> coordinates = new CoordinatesList<>(this);
-	private AListCredentials listCredentials = null;
+	private ListCredentials listCredentials = new ListCredentials();
 
-	public ListImageViewAbles(AListCredentials listCredentials) {
+	public ListImageViewAbles() {
 
-		this.listCredentials = listCredentials;
 		this.arrayList.setCapacity(this.listCredentials.capacity);
 		Lists.INSTANCE.lists.addLast(this.arrayList);
 		RealTimeDuplicateProtection.INSTANCE.addList(this.arrayList);
@@ -257,7 +255,7 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 		return this.arrayList;
 	}
 
-	public final AListCredentials getListCredentials() {
+	public final ListCredentials getListCredentials() {
 		return this.listCredentials;
 	}
 

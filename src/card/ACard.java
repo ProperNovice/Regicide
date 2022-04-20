@@ -31,6 +31,7 @@ public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 		new ImageView(path, this);
 		getImageView().setDimensions(Credentials.INSTANCE.dCard);
 		getImageView().setBack("back.png");
+		getImageView().flip();
 
 	}
 

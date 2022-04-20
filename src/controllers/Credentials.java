@@ -68,16 +68,16 @@ public enum Credentials {
 		// deck tavern
 
 		x = this.cDiscardPileTavern.x;
-		x += this.cDiscardPileTavern.x;
+		x += this.dCard.x;
 		x += this.dGapBetweenComponents.x;
 		y = this.cDiscardPileTavern.y;
 		this.cDeckTavern = new Vector2(x, y);
 
 		// deckCastle
 
-		x = this.dFrame.x;
+		x = this.dFrame.x / 2;
 		y = this.gapBetweenBorders;
-		y += this.dCard.y;
+		y += this.dCard.y / 2;
 		this.cDeckCastle = new Vector2(x, y);
 
 	}

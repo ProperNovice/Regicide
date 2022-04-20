@@ -2,11 +2,10 @@ package controllers;
 
 import card.ACard;
 import card.CardCastle;
-import listCredentials.DeckCastle;
-import listCredentials.DeckTavern;
-import listCredentials.DiscardPileTavern;
-import listCredentials.Hand;
 import utils.ArrayList;
+import utils.Enums.LayerZListEnum;
+import utils.Enums.RearrangeTypeEnum;
+import utils.Enums.RelocateTypeEnum;
 import utils.ListImageViewAbles;
 
 public enum Lists {
@@ -19,10 +18,44 @@ public enum Lists {
 
 	public void instantiate() {
 
-		this.hand = new ListImageViewAbles<>(new Hand());
-		this.deckTavern = new ListImageViewAbles<>(new DeckTavern());
-		this.discardPileTavern = new ListImageViewAbles<>(new DiscardPileTavern());
-		this.deckCastle = new ListImageViewAbles<>(new DeckCastle());
+		// hand
+
+		this.hand = new ListImageViewAbles<>();
+
+		this.hand.getListCredentials().coordinatesList = Credentials.INSTANCE.cHand;
+		this.hand.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
+		this.hand.getListCredentials().capacity = 8;
+
+		// deck tavern
+
+		this.deckTavern = new ListImageViewAbles<>();
+
+		this.deckTavern.getListCredentials().coordinatesList = Credentials.INSTANCE.cDeckTavern;
+		this.deckTavern.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+		this.deckTavern
+				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
+		this.deckTavern.getListCredentials().showListSize = true;
+
+		// discard pile tavern
+
+		this.discardPileTavern = new ListImageViewAbles<>();
+
+		this.discardPileTavern
+				.getListCredentials().coordinatesList = Credentials.INSTANCE.cDiscardPileTavern;
+		this.discardPileTavern.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+		this.discardPileTavern
+				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
+		this.discardPileTavern.getListCredentials().showListSize = true;
+
+		// deck castle
+
+		this.deckCastle = new ListImageViewAbles<>();
+
+		this.deckCastle.getListCredentials().coordinatesList = Credentials.INSTANCE.cDeckCastle;
+		this.deckCastle.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+		this.deckCastle
+				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
+		this.deckCastle.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 
 	}
 

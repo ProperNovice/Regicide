@@ -39,6 +39,10 @@ public enum InstantiateComponents {
 			}
 		
 		Lists.INSTANCE.deckTavern.relocateImageViews();
+		Lists.INSTANCE.deckCastle.relocateImageViews();
+		
+		System.out.println(Lists.INSTANCE.deckTavern.getArrayList().size());
+		System.out.println(Lists.INSTANCE.deckCastle.getArrayList().size());
 
 	}
 

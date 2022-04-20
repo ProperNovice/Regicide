@@ -1,13 +1,12 @@
-package listCredentials;
+package utils;
 
 import controllers.Credentials;
 import utils.Enums.DirectionEnum;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
 import utils.Enums.RelocateTypeEnum;
-import utils.Vector2;
 
-public abstract class AListCredentials {
+public class ListCredentials {
 
 	public LayerZListEnum layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
 	public int objectsPerRow = -1, capacity = -1;
