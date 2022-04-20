@@ -10,7 +10,7 @@ import utils.Vector2;
 public abstract class AListCredentials {
 
 	public LayerZListEnum layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
-	public int objectsPerRow = -1;
+	public int objectsPerRow = -1, capacity = -1;
 	public Vector2 coordinatesList = new Vector2(0, 0),
 			gapBetweenComponents = Credentials.INSTANCE.dGapBetweenComponents;
 	public RearrangeTypeEnum rearrangeTypeEnum = RearrangeTypeEnum.LINEAR;

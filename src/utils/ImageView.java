@@ -240,7 +240,11 @@ public class ImageView implements INode {
 	}
 
 	public void setBack(String path) {
-		this.imageBack = new Image(path);
+		setBack(new Image(path));
+	}
+
+	public void setBack(Image image) {
+		this.imageBack = image;
 	}
 
 	public void setSelectImageViewAbleRatioPosition(double x, double y) {

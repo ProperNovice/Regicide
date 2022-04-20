@@ -25,7 +25,7 @@ import utils.Vector2;
 public class Regicide extends Application {
 
 	private Vector2 dimensionsInsets = new Vector2(16, 39);
-	private double pixesOnTheLeft = 180;
+	private double pixesOnTheLeft = 180 - 60;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -50,7 +50,7 @@ public class Regicide extends Application {
 		primaryStage.setX(
 				(Screen.getPrimary().getBounds().getWidth() - width) / 2 - this.pixesOnTheLeft);
 		primaryStage.setY((Screen.getPrimary().getBounds().getHeight() - height) / 2);
-		primaryStage.setY(0);
+//		primaryStage.setY(0);
 
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 

@@ -19,6 +19,7 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 	public ListImageViewAbles(AListCredentials listCredentials) {
 
 		this.listCredentials = listCredentials;
+		this.arrayList.setCapacity(this.listCredentials.capacity);
 		Lists.INSTANCE.lists.addLast(this.arrayList);
 		RealTimeDuplicateProtection.INSTANCE.addList(this.arrayList);
 
@@ -127,6 +128,7 @@ public class ListImageViewAbles<T> implements Iterable<T> {
 		// to show
 
 		IImageViewAble imageViewAble = (IImageViewAble) this.arrayList.getRandom();
+
 		Vector2 center = new Vector2(this.listCredentials.coordinatesList.x,
 				this.listCredentials.coordinatesList.y);
 		double width = imageViewAble.getImageView().getWidth();
