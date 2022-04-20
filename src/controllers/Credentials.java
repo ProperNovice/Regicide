@@ -15,12 +15,12 @@ public enum Credentials {
 	public final double gapBetweenBorders = 25, textHeight = 50, selectEventHandlerAbleWidth = 100,
 			listQuantityRatioDimensions = 0.5, animationStep = 4;
 	public ArrayList<Class<?>> lineCastExcludeList = new ArrayList<Class<?>>();
-	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.LINEAR;
+	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.PIVOT;
 	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast;
 	public Vector2 cTextPanel;
 
-	public Vector2 dCard;
-	public Vector2 cHand, cDeckTavern, cDiscardPileTavern, cDeckCastle;
+	public Vector2 dCard, dIconIndicator, dIconNumber;
+	public Vector2 cHand, cDeckTavern, cDiscardPileTavern, cDeckCastle, cAttack, cLife;
 
 	private Credentials() {
 
@@ -79,7 +79,45 @@ public enum Credentials {
 		y = this.gapBetweenBorders;
 		y += this.dCard.y / 2;
 		this.cDeckCastle = new Vector2(x, y);
-		
+
+		// icon indicator
+
+		y = this.dCard.y * 0.4;
+		this.dIconIndicator = new Vector2(y, y);
+
+		// icon number
+
+		x = this.dIconIndicator.x / 2;
+		y = this.dIconIndicator.y / 2;
+		this.dIconNumber = new Vector2(x, y);
+
+		// attack
+
+		x = this.cDeckCastle.x;
+		x += this.dCard.x / 2;
+		x += 2 * this.dGapBetweenComponents.x;
+		x += this.dIconIndicator.x / 2;
+		y = this.gapBetweenBorders;
+		y += (this.dCard.y - 2 * this.dIconIndicator.y) / 3 + this.dIconIndicator.x / 2;
+		this.cAttack = new Vector2(x, y);
+
+		// life
+
+		x = this.cAttack.x;
+		y = this.gapBetweenBorders;
+		y += 2 * (this.dCard.y - 2 * this.dIconIndicator.y) / 3 + 3 * this.dIconIndicator.x / 2;
+		this.cLife = new Vector2(x, y);
+
+		// text
+
+		x = this.cAttack.x;
+		x += 2 * this.dGapBetweenComponents.x;
+		x += this.dIconIndicator.x / 2;
+		x += 2 * this.dIconNumber.x;
+		x += 2 * this.dGapBetweenComponents.x;
+		y = this.cDeckCastle.y;
+		this.cTextPanel = new Vector2(x, y);
+
 	}
 
 }

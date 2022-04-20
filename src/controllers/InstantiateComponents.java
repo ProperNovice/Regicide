@@ -13,6 +13,14 @@ public enum InstantiateComponents {
 	public void instantiate() {
 
 		createCards();
+		createIcons();
+
+	}
+
+	private void createIcons() {
+
+		IconsNumbers.ATTACK.getImageView();
+		IconsNumbers.HEALTH.getImageView();
 
 	}
 

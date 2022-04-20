@@ -56,6 +56,8 @@ public enum Lists {
 		this.deckCastle
 				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.deckCastle.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
+		this.deckCastle
+				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 
 	}
 

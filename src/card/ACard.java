@@ -3,6 +3,7 @@ package card;
 import controllers.Credentials;
 import enums.ESuit;
 import enums.EValue;
+import utils.Flow;
 import utils.ImageView;
 import utils.Interfaces.IEventHandlerAble;
 import utils.Interfaces.IImageViewAble;
@@ -47,13 +48,13 @@ public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 
 	}
 
-	protected void printCRedentials() {
+	protected void printCredentials() {
 
 	}
 
 	@Override
 	public void handleMouseButtonPressedPrimary() {
-
+		Flow.INSTANCE.getGameStateCurrent().handleCardPressed(this);
 	}
 
 }
