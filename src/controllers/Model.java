@@ -1,10 +1,20 @@
 package controllers;
 
+import card.ACard;
 import card.CardCastle;
+import utils.ArrayList;
 
 public enum Model {
 
 	INSTANCE;
+
+	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
+
+	public void playCards(ArrayList<ACard> list) {
+
+		this.cardsPlayedThisTurn = list.clone();
+
+	}
 
 	public void revealNextCardCastle() {
 

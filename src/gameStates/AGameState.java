@@ -49,8 +49,12 @@ public abstract class AGameState {
 
 	public final void handleCardPressed(ACard card) {
 
-		if (Lists.INSTANCE.hand.getArrayList().contains(card))
+		if (Lists.INSTANCE.hand.getArrayList().contains(card)) {
+
+			card.print();
 			handleCardPressedHand(card);
+
+		}
 
 	}
 

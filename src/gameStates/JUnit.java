@@ -48,6 +48,7 @@ public class JUnit extends AGameState {
 		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 1);
 		transferCardFromDeckTavernToHand(ESuit.CLUBS, 6);
 		transferCardFromDeckTavernToHand(ESuit.SPADES, 3);
+		transferCardFromDeckTavernToHand(ESuit.CLUBS, 1);
 		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 3);
 
 		Lists.INSTANCE.hand.relocateImageViews();

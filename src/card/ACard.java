@@ -7,6 +7,7 @@ import utils.Flow;
 import utils.ImageView;
 import utils.Interfaces.IEventHandlerAble;
 import utils.Interfaces.IImageViewAble;
+import utils.Logger;
 
 public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 
@@ -46,9 +47,11 @@ public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 
 	public final void print() {
 
-	}
-
-	protected void printCredentials() {
+		Logger.INSTANCE.log("printing card");
+		Logger.INSTANCE.log(getClass());
+		Logger.INSTANCE.log("suit -> " + this.eSuit.toString().toLowerCase());
+		Logger.INSTANCE.log("attack -> " + this.attack);
+		Logger.INSTANCE.newLine();
 
 	}
 

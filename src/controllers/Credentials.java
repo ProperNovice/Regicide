@@ -15,7 +15,7 @@ public enum Credentials {
 	public final double gapBetweenBorders = 25, textHeight = 50, selectEventHandlerAbleWidth = 100,
 			listQuantityRatioDimensions = 0.5, animationStep = 4;
 	public ArrayList<Class<?>> lineCastExcludeList = new ArrayList<Class<?>>();
-	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.PIVOT;
+	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.STATIC;
 	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast;
 	public Vector2 cTextPanel;
 
@@ -116,6 +116,7 @@ public enum Credentials {
 		x += 2 * this.dIconNumber.x;
 		x += 2 * this.dGapBetweenComponents.x;
 		y = this.cDeckCastle.y;
+		y -= this.textHeight / 2;
 		this.cTextPanel = new Vector2(x, y);
 
 	}
