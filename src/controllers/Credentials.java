@@ -80,8 +80,6 @@ public enum Credentials {
 		y += this.dCard.y / 2;
 		this.cDeckCastle = new Vector2(x, y);
 		
-		this.dFrame.print();
-
 	}
 
 }

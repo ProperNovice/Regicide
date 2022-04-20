@@ -12,7 +12,7 @@ public enum Lists {
 
 	INSTANCE;
 
-	public ArrayList<ArrayList<? extends Object>> lists = new ArrayList<ArrayList<? extends Object>>();
+	public final ArrayList<ArrayList<? extends Object>> lists = new ArrayList<ArrayList<? extends Object>>();
 	public ListImageViewAbles<ACard> hand, deckTavern, discardPileTavern;
 	public ListImageViewAbles<CardCastle> deckCastle;
 
