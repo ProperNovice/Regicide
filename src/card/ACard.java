@@ -12,7 +12,7 @@ import utils.Logger;
 public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 
 	private ESuit eSuit = null;
-	protected int attack = -1;
+	protected int value = -1;
 
 	public ACard(ESuit eSuit, EValue eValue) {
 
@@ -41,8 +41,8 @@ public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 		return this.eSuit;
 	}
 
-	public int getAttack() {
-		return this.attack;
+	public int getValue() {
+		return this.value;
 	}
 
 	public final void print() {
@@ -50,7 +50,7 @@ public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 		Logger.INSTANCE.log("printing card");
 		Logger.INSTANCE.log(getClass());
 		Logger.INSTANCE.log("suit -> " + this.eSuit.toString().toLowerCase());
-		Logger.INSTANCE.log("attack -> " + this.attack);
+		Logger.INSTANCE.log("attack -> " + this.value);
 		Logger.INSTANCE.newLine();
 
 	}

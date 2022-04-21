@@ -2,6 +2,7 @@ package controllers;
 
 import card.ACard;
 import card.CardCastle;
+import enums.ESuit;
 import utils.ArrayList;
 
 public enum Model {
@@ -10,19 +11,48 @@ public enum Model {
 
 	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
 
-	public void resolveSpades() {
+	private void resolveSpades(int value) {
 
 	}
 
-	public void resolveClubs() {
+	private void resolveClubs(int value) {
 
 	}
 
-	public void resolveDiamonds() {
+	private void resolveDiamonds(int value) {
 
 	}
 
-	public void resolveHearts() {
+	private void resolveHearts(int value) {
+
+	}
+
+	public void resolveESuit(ESuit eSuit) {
+
+		int value = 0;
+
+		for (ACard card : this.cardsPlayedThisTurn)
+			value += card.getValue();
+
+		switch (eSuit) {
+
+		case HEARTS:
+			resolveHearts(value);
+			break;
+
+		case DIAMONDS:
+			resolveDiamonds(value);
+			break;
+
+		case CLUBS:
+			resolveClubs(value);
+			break;
+
+		case SPADES:
+			resolveSpades(value);
+			break;
+
+		}
 
 	}
 
@@ -35,7 +65,7 @@ public enum Model {
 		CardCastle cardCastle = Lists.INSTANCE.deckCastle.getArrayList().getFirst();
 		cardCastle.getImageView().flip();
 
-		IconsNumbers.ATTACK.setValue(cardCastle.getAttack());
+		IconsNumbers.ATTACK.setValue(cardCastle.getValue());
 		IconsNumbers.HEALTH.setValue(cardCastle.getHealth());
 
 	}

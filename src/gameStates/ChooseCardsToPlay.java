@@ -38,8 +38,8 @@ public class ChooseCardsToPlay extends AGameState {
 		for (IImageViewAble imageViewAble : listImageViewAbles)
 			list.addLast((ACard) imageViewAble);
 
-		Model.INSTANCE.setCardsPlayedThisTurn(list);
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+		Model.INSTANCE.setCardsPlayedThisTurn(list);
 
 		Flow.INSTANCE.proceed();
 
@@ -68,7 +68,7 @@ public class ChooseCardsToPlay extends AGameState {
 		// if selected = 1, try to pair with ace
 
 		if (listCards.size() == 1)
-			if (listCards.getFirst().getAttack() == 1 || card.getAttack() == 1) {
+			if (listCards.getFirst().getValue() == 1 || card.getValue() == 1) {
 
 				card.reverseSelectImageView();
 				showText();
@@ -79,24 +79,24 @@ public class ChooseCardsToPlay extends AGameState {
 		// if selected = 2 one of them is ace and the other is not
 
 		if (listCards.size() == 2)
-			if (listCards.getFirst().getAttack() != listCards.getLast().getAttack()) {
+			if (listCards.getFirst().getValue() != listCards.getLast().getValue()) {
 				showText();
 				return;
 			}
 
 		// all selected same number. If the new is not, return
 
-		if (card.getAttack() != listCards.getFirst().getAttack()) {
+		if (card.getValue() != listCards.getFirst().getValue()) {
 			showText();
 			return;
 		}
 
 		// if sum > 10 return
 
-		int sumValue = card.getAttack();
+		int sumValue = card.getValue();
 
 		for (ACard aCard : listCards)
-			sumValue += aCard.getAttack();
+			sumValue += aCard.getValue();
 
 		if (sumValue > 10) {
 			showText();

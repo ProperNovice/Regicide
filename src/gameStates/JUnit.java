@@ -61,7 +61,7 @@ public class JUnit extends AGameState {
 			if (!card.getESuit().equals(eSuit))
 				continue;
 
-			if (card.getAttack() != attack)
+			if (card.getValue() != attack)
 				continue;
 
 			card.getImageView().flipFront();

@@ -11,7 +11,7 @@ public class CardCastle extends ACard {
 
 		super(eSuit, eValue);
 		this.health = eValue.getValue();
-		super.attack = this.health / 2;
+		super.value = this.health / 2;
 
 	}
 
