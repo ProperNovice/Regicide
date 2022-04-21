@@ -212,7 +212,6 @@ public class ArrayList<T> implements Iterable<T>, ISaveLoadStateAble {
 	public ArrayList<T> clone() {
 
 		java.util.ArrayList<T> arrayList = new java.util.ArrayList<>(this.list);
-
 		ArrayList<T> arrayListToReturn = new ArrayList<T>(arrayList, this.capacity);
 
 		return arrayListToReturn;

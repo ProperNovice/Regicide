@@ -16,8 +16,7 @@ public class JUnit extends AGameState {
 		setFirstCardDeckCastle();
 
 		Model.INSTANCE.revealNextCardCastle();
-
-		Flow.INSTANCE.executeGameState(ChooseCardsToPlay.class);
+		Flow.INSTANCE.executeGameState(StartNewTurn.class);
 
 	}
 

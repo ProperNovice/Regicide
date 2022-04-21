@@ -10,10 +10,24 @@ public enum Model {
 
 	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
 
-	public void playCards(ArrayList<ACard> list) {
+	public void resolveSpades() {
 
+	}
+
+	public void resolveClubs() {
+
+	}
+
+	public void resolveDiamonds() {
+
+	}
+
+	public void resolveHearts() {
+
+	}
+
+	public void setCardsPlayedThisTurn(ArrayList<ACard> list) {
 		this.cardsPlayedThisTurn = list.clone();
-
 	}
 
 	public void revealNextCardCastle() {

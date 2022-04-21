@@ -1,6 +1,7 @@
 package gameStates;
 
 import card.ACard;
+import controllers.Model;
 import enums.EText;
 import utils.ArrayList;
 import utils.Flow;
@@ -37,6 +38,7 @@ public class ChooseCardsToPlay extends AGameState {
 		for (IImageViewAble imageViewAble : listImageViewAbles)
 			list.addLast((ACard) imageViewAble);
 
+		Model.INSTANCE.setCardsPlayedThisTurn(list);
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
 		Flow.INSTANCE.proceed();
