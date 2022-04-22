@@ -1,6 +1,7 @@
 package controllers;
 
 import card.CardCastle;
+import card.CardJester;
 import card.CardTavern;
 import enums.ESuit;
 import enums.EValue;
@@ -51,6 +52,14 @@ public enum InstantiateComponents {
 
 		Lists.INSTANCE.deckTavern.relocateImageViews();
 		Lists.INSTANCE.deckCastle.relocateImageViews();
+
+		// jester
+
+		for (int counter = 1; counter <= 2; counter++)
+			Lists.INSTANCE.jesters.getArrayList().addFirst(new CardJester());
+		
+		Lists.INSTANCE.jesters.getArrayList().saveOriginal();
+		Lists.INSTANCE.jesters.relocateImageViews();
 
 	}
 

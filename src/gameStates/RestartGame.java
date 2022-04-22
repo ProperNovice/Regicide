@@ -1,5 +1,6 @@
 package gameStates;
 
+import utils.Flow;
 import utils.SelectImageViewManager;
 
 public class RestartGame extends AGameState {
@@ -9,6 +10,8 @@ public class RestartGame extends AGameState {
 
 		concealText();
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+		
+		Flow.INSTANCE.executeGameState(StartGame.class);
 
 	}
 

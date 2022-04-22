@@ -21,7 +21,7 @@ public enum Credentials {
 
 	public Vector2 dCard, dIconIndicator, dIconNumber;
 	public Vector2 cHand, cDeckTavern, cDiscardPileTavern, cDeckCastle, cAttack, cLife,
-			cCardsPlayed;
+			cCardsPlayed, cJesters;
 
 	private Credentials() {
 
@@ -128,6 +128,12 @@ public enum Credentials {
 		y = this.gapBetweenBorders;
 		y += this.dCard.y / 2;
 		this.cCardsPlayed = new Vector2(x, y);
+
+		// jester
+
+		x = (this.cDeckCastle.x + this.cDeckTavern.x) / 2 - this.dCard.x / 4;
+		y = this.cDiscardPileTavern.y;
+		this.cJesters = new Vector2(x, y);
 
 	}
 

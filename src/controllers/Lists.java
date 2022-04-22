@@ -2,6 +2,7 @@ package controllers;
 
 import card.ACard;
 import card.CardCastle;
+import card.CardJester;
 import utils.ArrayList;
 import utils.Enums.LayerZListEnum;
 import utils.Enums.RearrangeTypeEnum;
@@ -15,6 +16,7 @@ public enum Lists {
 	public final ArrayList<ArrayList<? extends Object>> lists = new ArrayList<ArrayList<? extends Object>>();
 	public ListImageViewAbles<ACard> hand, deckTavern, discardPileTavern, cardsPlayed;
 	public ListImageViewAbles<CardCastle> deckCastle;
+	public ListImageViewAbles<CardJester> jesters;
 
 	public void instantiate() {
 
@@ -66,6 +68,14 @@ public enum Lists {
 				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.cardsPlayed.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.cardsPlayed.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+
+		// jester
+
+		this.jesters = new ListImageViewAbles<>();
+
+		this.jesters.getListCredentials().coordinatesList = Credentials.INSTANCE.cJesters;
+		this.jesters.getListCredentials().layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
+		this.jesters.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 
 	}
 

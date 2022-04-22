@@ -13,7 +13,17 @@ public class RoyalAttack extends AGameState {
 
 	@Override
 	public void execute() {
-		showText();
+
+		if (gameIsLost()) {
+
+			EText.ROYAL_ATTACK.show();
+			Flow.INSTANCE.getFlow().clear();
+			Flow.INSTANCE.getFlow().addFirst(EndGameLost.class);
+			Flow.INSTANCE.proceed();
+
+		} else
+			showText();
+
 	}
 
 	@Override
@@ -69,6 +79,10 @@ public class RoyalAttack extends AGameState {
 
 		eText.show();
 
+	}
+
+	private boolean gameIsLost() {
+		return IconsNumbers.ATTACK.getValue() > Model.INSTANCE.getTotalValueInHand();
 	}
 
 }

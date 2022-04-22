@@ -63,6 +63,20 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 		return t;
 
 	}
+	
+	
+
+	@Override
+	public void loadOriginal() {
+		super.loadOriginal();
+		update();
+	}
+
+	@Override
+	public void loadState() {
+		super.loadState();
+		update();
+	}
 
 	private void runDuplicateProtection() {
 		RealTimeDuplicateProtection.INSTANCE.executeDuplicateProtect();

@@ -8,8 +8,6 @@ public abstract class AEndGame extends AGameState {
 	@Override
 	public void execute() {
 
-		concealText();
-
 		getEText().show();
 		EText.RESTART.show();
 

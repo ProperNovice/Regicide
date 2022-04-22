@@ -19,11 +19,25 @@ public enum Model {
 	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
 	private boolean performedRegicideThisTurn = false;
 
+	public int getTotalValueInHand() {
+
+		int value = 0;
+
+		for (ACard card : Lists.INSTANCE.hand)
+			value += card.getValue();
+
+		return value;
+
+	}
+
 	public void setUpNewGame() {
 
 		Lists.INSTANCE.loadListsOriginal();
 
 		// prepare deck tavern
+
+		for (ACard card : Lists.INSTANCE.deckTavern)
+			card.getImageView().flipBack();
 
 		Lists.INSTANCE.deckTavern.getArrayList().shuffle();
 		Lists.INSTANCE.deckTavern.relocateImageViews();
@@ -46,6 +60,9 @@ public enum Model {
 			Lists.INSTANCE.deckCastle.getArrayList().addAllLast(map.getValue(integer));
 
 		}
+
+		for (ACard card : Lists.INSTANCE.deckCastle)
+			card.getImageView().flipBack();
 
 		Lists.INSTANCE.deckCastle.relocateImageViews();
 
@@ -121,7 +138,12 @@ public enum Model {
 			listToAdd = Lists.INSTANCE.discardPileTavern;
 
 		listToAdd.getArrayList().addFirst(cardCastle);
-		listToAdd.animateSynchronousLock();
+		listToAdd.animateSynchronous();
+
+		Lists.INSTANCE.discardPileTavern.getArrayList()
+				.addAllFirst(Lists.INSTANCE.cardsPlayed.getArrayList().clear());
+
+		Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
 
 	}
 

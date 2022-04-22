@@ -3,6 +3,7 @@ package gameStates;
 import card.ACard;
 import card.CardCastle;
 import controllers.Lists;
+import controllers.Model;
 import enums.ESuit;
 import utils.Flow;
 
@@ -11,13 +12,30 @@ public class JUnit extends AGameState {
 	@Override
 	public void execute() {
 
-//		drawCardsToHand();
-//		setFirstCardDeckCastle();
-//		transferCardsFromDeckToDiscardPile();
-//
-//		Model.INSTANCE.revealNextCardCastle();
-		Flow.INSTANCE.executeGameState(StartGame.class);
+		drawCardsToHand();
+		setFirstCardDeckCastle();
+		transferCardsFromDeckToDiscardPile();
+		addCardsToPlayed();
 
+		Model.INSTANCE.revealNextCardCastle();
+
+		Flow.INSTANCE.executeGameState(StartNewTurn.class);
+//		Flow.INSTANCE.executeGameState(StartGame.class);
+
+	}
+	
+	public void addCardsToPlayed() {
+		
+		for(int counter = 1; counter <= 5; counter++) {
+			
+			ACard card = Lists.INSTANCE.deckTavern.getArrayList().removeRandom();
+			card.getImageView().flip();
+			Lists.INSTANCE.cardsPlayed.getArrayList().addLast(card);
+			
+		}
+		
+		Lists.INSTANCE.cardsPlayed.relocateImageViews();
+		
 	}
 
 	public void transferCardsFromDeckToDiscardPile() {
@@ -38,7 +56,7 @@ public class JUnit extends AGameState {
 
 		for (CardCastle cardCastle : Lists.INSTANCE.deckCastle.getArrayList().clone()) {
 
-			if (!cardCastle.getESuit().equals(ESuit.CLUBS))
+			if (!cardCastle.getESuit().equals(ESuit.HEARTS))
 				continue;
 
 			if (cardCastle.getHealth() != 20)
