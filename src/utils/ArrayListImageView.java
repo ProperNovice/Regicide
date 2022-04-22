@@ -14,24 +14,28 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	public void add(int index, T element) {
 		super.add(index, element);
 		runDuplicateProtection();
+		update();
 	}
 
 	@Override
 	public void addFirst(T element) {
 		super.addFirst(element);
 		runDuplicateProtection();
+		update();
 	}
 
 	@Override
 	public void addLast(T e) {
 		super.addLast(e);
 		runDuplicateProtection();
+		update();
 	}
 
 	@Override
 	public void set(int index, T element) {
 		super.set(index, element);
 		runDuplicateProtection();
+		update();
 	}
 
 	@Override
@@ -61,14 +65,12 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	}
 
 	private void runDuplicateProtection() {
-
 		RealTimeDuplicateProtection.INSTANCE.executeDuplicateProtect();
-		update();
-
 	}
 
 	private void update() {
-		AnimationTimerFX.INSTANCE.updateNextFrame(this.updateAble);
+//		AnimationTimerFX.INSTANCE.updateNextFrame(this.updateAble);
+		this.updateAble.update();
 	}
 
 }

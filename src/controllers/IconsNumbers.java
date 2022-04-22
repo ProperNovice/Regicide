@@ -14,10 +14,10 @@ public enum IconsNumbers implements IImageViewAble {
 	private Vector2 coordinates = null;
 	private ArrayList<IImageViewAble> list = new ArrayList<>();
 
-	private IconsNumbers(String path, Vector2 coordinates) {
+	private IconsNumbers(String fileNamePath, Vector2 coordinates) {
 
 		this.coordinates = coordinates;
-		new ImageView(path + ".png", this);
+		new ImageView(fileNamePath + ".png", this);
 		getImageView().setDimensions(Credentials.INSTANCE.dIconIndicator);
 		getImageView().relocateCenter(this.coordinates);
 
@@ -28,14 +28,8 @@ public enum IconsNumbers implements IImageViewAble {
 		setIcons();
 	}
 
-	public void add(int value) {
-		this.value += value;
-		setIcons();
-	}
-
-	public void substract(int value) {
-		this.value -= value;
-		setIcons();
+	public int getValue() {
+		return this.value;
 	}
 
 	private void setIcons() {

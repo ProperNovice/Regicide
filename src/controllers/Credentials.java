@@ -15,12 +15,13 @@ public enum Credentials {
 	public final double gapBetweenBorders = 25, textHeight = 50, selectEventHandlerAbleWidth = 100,
 			listQuantityRatioDimensions = 0.5, animationStep = 4;
 	public ArrayList<Class<?>> lineCastExcludeList = new ArrayList<Class<?>>();
-	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.STATIC;
+	public RearrangeTypeEnum rearrangeTypeEnumText = RearrangeTypeEnum.PIVOT;
 	public Vector2 dFrame, dGapBetweenComponents, dGapBetweenComponentsLineCast;
 	public Vector2 cTextPanel;
 
 	public Vector2 dCard, dIconIndicator, dIconNumber;
-	public Vector2 cHand, cDeckTavern, cDiscardPileTavern, cDeckCastle, cAttack, cLife;
+	public Vector2 cHand, cDeckTavern, cDiscardPileTavern, cDeckCastle, cAttack, cLife,
+			cCardsPlayed;
 
 	private Credentials() {
 
@@ -118,6 +119,15 @@ public enum Credentials {
 		y = this.cDeckCastle.y;
 		y -= this.textHeight / 2;
 		this.cTextPanel = new Vector2(x, y);
+
+		// cards played
+
+		x = this.dFrame.x;
+		x -= this.gapBetweenBorders;
+		x -= this.dCard.x / 2;
+		y = this.gapBetweenBorders;
+		y += this.dCard.y / 2;
+		this.cCardsPlayed = new Vector2(x, y);
 
 	}
 

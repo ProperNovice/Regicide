@@ -14,9 +14,24 @@ public class JUnit extends AGameState {
 
 		drawCardsToHand();
 		setFirstCardDeckCastle();
+		transferCardsFromDeckToDiscardPile();
 
 		Model.INSTANCE.revealNextCardCastle();
 		Flow.INSTANCE.executeGameState(StartNewTurn.class);
+
+	}
+
+	public void transferCardsFromDeckToDiscardPile() {
+
+		for (int counter = 1; counter <= 2; counter++) {
+
+			ACard card = Lists.INSTANCE.deckTavern.getArrayList().removeRandom();
+			card.getImageView().flip();
+			Lists.INSTANCE.discardPileTavern.getArrayList().addLast(card);
+
+		}
+
+		Lists.INSTANCE.discardPileTavern.relocateImageViews();
 
 	}
 
@@ -42,10 +57,10 @@ public class JUnit extends AGameState {
 	public void drawCardsToHand() {
 
 		transferCardFromDeckTavernToHand(ESuit.CLUBS, 5);
-		transferCardFromDeckTavernToHand(ESuit.SPADES, 6);
+		transferCardFromDeckTavernToHand(ESuit.SPADES, 5);
 		transferCardFromDeckTavernToHand(ESuit.HEARTS, 3);
 		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 1);
-		transferCardFromDeckTavernToHand(ESuit.CLUBS, 6);
+		transferCardFromDeckTavernToHand(ESuit.CLUBS, 10);
 		transferCardFromDeckTavernToHand(ESuit.SPADES, 3);
 		transferCardFromDeckTavernToHand(ESuit.CLUBS, 1);
 		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 3);

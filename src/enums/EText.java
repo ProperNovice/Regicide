@@ -9,7 +9,16 @@ public enum EText {
 	RESTART("Restart", TextTypeEnum.OPTION),
 	YOU_WON("You won", TextTypeEnum.INDICATOR),
 	YOU_LOST("You lost", TextTypeEnum.INDICATOR),
-	CHOOSE_CARDS_TO_PLAY("Choose cards to play", TextTypeEnum.INDICATOR),
+	PLAY_CARDS("Play cards", TextTypeEnum.INDICATOR),
+	RESOLVE_CLUBS("Resolve clubs", TextTypeEnum.INDICATOR),
+	RESOLVE_DIAMONDS("Resolve diamonds", TextTypeEnum.INDICATOR),
+	RESOLVE_HEARTS("Resolve hearts", TextTypeEnum.INDICATOR),
+	RESOLVE_SPADES("Resolve spades", TextTypeEnum.INDICATOR),
+	PLAYER_PHASE("Player phase", TextTypeEnum.INDICATOR),
+	ROYAL_PHASE("Royal phase", TextTypeEnum.INDICATOR),
+	ATTACK("Attack -> ", TextTypeEnum.INDICATOR),
+	DISCARD_CARDS("Discard cards", TextTypeEnum.INDICATOR),
+	VOID("", TextTypeEnum.INDICATOR),
 
 	;
 
@@ -29,6 +38,10 @@ public enum EText {
 
 	public void showAdditionally(String string) {
 		Text.INSTANCE.showText(this, getString() + string);
+	}
+	
+	public void showAdditionally(int integer) {
+		showAdditionally(Integer.toString(integer));
 	}
 
 	public void showInstead(String string) {

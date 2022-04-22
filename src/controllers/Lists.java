@@ -13,7 +13,7 @@ public enum Lists {
 	INSTANCE;
 
 	public final ArrayList<ArrayList<? extends Object>> lists = new ArrayList<ArrayList<? extends Object>>();
-	public ListImageViewAbles<ACard> hand, deckTavern, discardPileTavern;
+	public ListImageViewAbles<ACard> hand, deckTavern, discardPileTavern, cardsPlayed;
 	public ListImageViewAbles<CardCastle> deckCastle;
 
 	public void instantiate() {
@@ -24,7 +24,7 @@ public enum Lists {
 
 		this.hand.getListCredentials().coordinatesList = Credentials.INSTANCE.cHand;
 		this.hand.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
-		this.hand.getListCredentials().capacity = 8;
+		this.hand.getArrayList().setCapacity(8);
 
 		// deck tavern
 
@@ -56,8 +56,16 @@ public enum Lists {
 		this.deckCastle
 				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
 		this.deckCastle.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
-		this.deckCastle
+
+		// cards played
+
+		this.cardsPlayed = new ListImageViewAbles<>();
+
+		this.cardsPlayed.getListCredentials().coordinatesList = Credentials.INSTANCE.cCardsPlayed;
+		this.cardsPlayed
 				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
+		this.cardsPlayed.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
+		this.cardsPlayed.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 
 	}
 

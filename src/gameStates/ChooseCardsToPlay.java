@@ -117,12 +117,16 @@ public class ChooseCardsToPlay extends AGameState {
 
 	private void showText() {
 
-		EText.CHOOSE_CARDS_TO_PLAY.show();
+		EText.PLAY_CARDS.show();
+
+		EText eText = null;
 
 		if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() == 0)
-			return;
+			eText = EText.VOID;
+		else
+			eText = EText.CONTINUE;
 
-		EText.CONTINUE.show();
+		eText.show();
 
 	}
 
