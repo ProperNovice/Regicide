@@ -3,9 +3,13 @@ package controllers;
 import card.ACard;
 import card.CardCastle;
 import enums.ESuit;
+import enums.EValue;
 import utils.ArrayList;
+import utils.HashMap;
+import utils.Interfaces.IImageViewAble;
 import utils.ListImageViewAbles;
 import utils.Logger;
+import utils.SelectImageViewManager;
 import utils.ShutDown;
 
 public enum Model {
@@ -14,6 +18,75 @@ public enum Model {
 
 	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
 	private boolean performedRegicideThisTurn = false;
+
+	public void setUpNewGame() {
+
+		Lists.INSTANCE.loadListsOriginal();
+
+		// prepare deck tavern
+
+		Lists.INSTANCE.deckTavern.getArrayList().shuffle();
+		Lists.INSTANCE.deckTavern.relocateImageViews();
+
+		// prepare deck castle
+
+		HashMap<Integer, ArrayList<CardCastle>> map = new HashMap<>();
+		map.put(EValue.JACK.getValue() / 2, new ArrayList<>());
+		map.put(EValue.QUEEN.getValue() / 2, new ArrayList<>());
+		map.put(EValue.KING.getValue() / 2, new ArrayList<>());
+
+		for (CardCastle cardCastle : Lists.INSTANCE.deckCastle)
+			map.getValue(cardCastle.getValue()).addLast(cardCastle);
+
+		Lists.INSTANCE.deckCastle.getArrayList().clear();
+
+		for (Integer integer : map) {
+
+			map.getValue(integer).shuffle();
+			Lists.INSTANCE.deckCastle.getArrayList().addAllLast(map.getValue(integer));
+
+		}
+
+		Lists.INSTANCE.deckCastle.relocateImageViews();
+
+		// set new royal
+
+		setNewRoyal();
+
+		// draw starting hand
+
+		resolveDiamonds(8);
+
+	}
+
+	public void setNewRoyal() {
+
+		CardCastle cardCastle = Lists.INSTANCE.deckCastle.getArrayList().getFirst();
+		cardCastle.getImageView().flipFront();
+
+		IconsNumbers.ATTACK.setValue(cardCastle.getValue());
+		IconsNumbers.HEALTH.setValue(cardCastle.getHealth());
+
+	}
+
+	public void discardHandCardsSelected() {
+
+		ArrayList<IImageViewAble> cardsToDiscard = SelectImageViewManager.INSTANCE
+				.getSelectedImageViewAbles();
+
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+
+		for (IImageViewAble imageViewAble : cardsToDiscard) {
+
+			Lists.INSTANCE.hand.getArrayList().remove((ACard) imageViewAble);
+			Lists.INSTANCE.discardPileTavern.getArrayList().addFirst((ACard) imageViewAble);
+
+		}
+
+		Lists.INSTANCE.hand.animateSynchronous();
+		Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
+
+	}
 
 	public boolean performedRegicideThisTurn() {
 		return this.performedRegicideThisTurn;
@@ -55,6 +128,9 @@ public enum Model {
 	public int getTotalAttackPlayed() {
 
 		int value = getTotalValuePlayed();
+
+		if (Lists.INSTANCE.deckCastle.getArrayList().getFirst().getESuit().equals(ESuit.CLUBS))
+			return value;
 
 		for (ACard card : this.cardsPlayedThisTurn) {
 

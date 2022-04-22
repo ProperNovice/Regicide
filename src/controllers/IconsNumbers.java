@@ -32,14 +32,20 @@ public enum IconsNumbers implements IImageViewAble {
 		return this.value;
 	}
 
-	private void setIcons() {
-
-		// clear list
+	public void clearIconsList() {
 
 		for (IImageViewAble imageViewAble : this.list)
 			imageViewAble.getImageView().setVisible(false);
 
 		this.list.clear();
+
+	}
+
+	private void setIcons() {
+
+		// clear list
+
+		clearIconsList();
 
 		// create list of numbers
 

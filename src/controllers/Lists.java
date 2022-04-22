@@ -69,4 +69,11 @@ public enum Lists {
 
 	}
 
+	public void loadListsOriginal() {
+
+		for (ArrayList<? extends Object> list : this.lists)
+			list.loadOriginal();
+
+	}
+
 }

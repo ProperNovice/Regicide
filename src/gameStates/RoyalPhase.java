@@ -8,14 +8,12 @@ public class RoyalPhase extends AGameState {
 	@Override
 	public void execute() {
 
-		Class<? extends AGameState> gameStateNext = null;
-
 		if (!Model.INSTANCE.performedRegicideThisTurn())
-			gameStateNext = RoyalAttack.class;
+			Flow.INSTANCE.getFlow().addFirst(RoyalAttack.class);
 		else
-			gameStateNext = RoyalSetNew.class;
+			Model.INSTANCE.setNewRoyal();
 
-		Flow.INSTANCE.executeGameState(gameStateNext);
+		Flow.INSTANCE.proceed();
 
 	}
 

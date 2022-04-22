@@ -2,8 +2,10 @@ package gameStates;
 
 import card.ACard;
 import controllers.IconsNumbers;
+import controllers.Model;
 import enums.EText;
 import utils.ArrayList;
+import utils.Flow;
 import utils.Interfaces.IImageViewAble;
 import utils.SelectImageViewManager;
 
@@ -20,12 +22,31 @@ public class RoyalAttack extends AGameState {
 		showText();
 	}
 
+	@Override
+	protected void executeTextOption(EText eText) {
+
+		if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() > 0)
+			Model.INSTANCE.discardHandCardsSelected();
+
+		Flow.INSTANCE.proceed();
+
+	}
+
 	private void showText() {
 
 		concealText();
 
-		EText.ROYAL_PHASE.show();
-		EText.ATTACK.showAdditionally(IconsNumbers.ATTACK.getValue());
+		EText.ROYAL_ATTACK.show();
+
+		int royalAttack = IconsNumbers.ATTACK.getValue();
+
+		if (royalAttack == 0) {
+
+			EText.CONTINUE.show();
+			return;
+
+		}
+
 		EText.DISCARD_CARDS.show();
 
 		ArrayList<ACard> list = new ArrayList<>();
@@ -34,7 +55,6 @@ public class RoyalAttack extends AGameState {
 				.getSelectedImageViewAbles())
 			list.addLast((ACard) imageViewAble);
 
-		int royalAttack = IconsNumbers.ATTACK.getValue();
 		int playerDefence = 0;
 
 		for (ACard card : list)

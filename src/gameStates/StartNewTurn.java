@@ -13,6 +13,7 @@ public class StartNewTurn extends AGameState {
 		Flow.INSTANCE.getFlow().addLast(ResolveSpades.class);
 		Flow.INSTANCE.getFlow().addLast(PlayerAttack.class);
 		Flow.INSTANCE.getFlow().addLast(RoyalPhase.class);
+		Flow.INSTANCE.getFlow().addLast(StartNewTurn.class);
 
 		Flow.INSTANCE.proceed();
 

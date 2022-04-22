@@ -15,10 +15,11 @@ public enum EText {
 	RESOLVE_HEARTS("Resolve hearts", TextTypeEnum.INDICATOR),
 	RESOLVE_SPADES("Resolve spades", TextTypeEnum.INDICATOR),
 	PLAYER_PHASE("Player phase", TextTypeEnum.INDICATOR),
-	ROYAL_PHASE("Royal phase", TextTypeEnum.INDICATOR),
+	ROYAL_ATTACK("Royal attack", TextTypeEnum.INDICATOR),
 	ATTACK("Attack -> ", TextTypeEnum.INDICATOR),
 	DISCARD_CARDS("Discard cards", TextTypeEnum.INDICATOR),
 	VOID("", TextTypeEnum.INDICATOR),
+	START_GAME("Start game", TextTypeEnum.OPTION),
 
 	;
 

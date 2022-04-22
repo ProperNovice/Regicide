@@ -3,7 +3,6 @@ package gameStates;
 import card.ACard;
 import card.CardCastle;
 import controllers.Lists;
-import controllers.Model;
 import enums.ESuit;
 import utils.Flow;
 
@@ -12,12 +11,12 @@ public class JUnit extends AGameState {
 	@Override
 	public void execute() {
 
-		drawCardsToHand();
-		setFirstCardDeckCastle();
-		transferCardsFromDeckToDiscardPile();
-
-		Model.INSTANCE.revealNextCardCastle();
-		Flow.INSTANCE.executeGameState(StartNewTurn.class);
+//		drawCardsToHand();
+//		setFirstCardDeckCastle();
+//		transferCardsFromDeckToDiscardPile();
+//
+//		Model.INSTANCE.revealNextCardCastle();
+		Flow.INSTANCE.executeGameState(StartGame.class);
 
 	}
 
@@ -39,7 +38,7 @@ public class JUnit extends AGameState {
 
 		for (CardCastle cardCastle : Lists.INSTANCE.deckCastle.getArrayList().clone()) {
 
-			if (!cardCastle.getESuit().equals(ESuit.DIAMONDS))
+			if (!cardCastle.getESuit().equals(ESuit.CLUBS))
 				continue;
 
 			if (cardCastle.getHealth() != 20)
