@@ -62,4 +62,8 @@ public abstract class AGameState {
 
 	}
 
+	public void handleJesterPressed() {
+
+	}
+
 }

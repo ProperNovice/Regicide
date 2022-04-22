@@ -36,19 +36,10 @@ public class RoyalAttack extends AGameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		if (eText.equals(EText.CONTINUE)) {
+		if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() > 0)
+			Model.INSTANCE.discardHandCardsSelected();
 
-			if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() > 0)
-				Model.INSTANCE.discardHandCardsSelected();
-
-			Flow.INSTANCE.proceed();
-
-		} else if (eText.equals(EText.PLAY_JESTER)) {
-
-			Model.INSTANCE.playJester();
-			showText();
-
-		}
+		Flow.INSTANCE.proceed();
 
 	}
 
@@ -69,8 +60,6 @@ public class RoyalAttack extends AGameState {
 
 		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
 			EText.DISCARD_CARDS.show();
-
-		EText.PLAY_JESTER.show();
 
 		ArrayList<ACard> list = new ArrayList<>();
 
@@ -102,6 +91,15 @@ public class RoyalAttack extends AGameState {
 			return false;
 		else
 			return true;
+	}
+
+	@Override
+	public void handleJesterPressed() {
+
+		concealText();
+		Model.INSTANCE.playJester();
+		showText();
+
 	}
 
 }

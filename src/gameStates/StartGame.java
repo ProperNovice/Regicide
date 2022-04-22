@@ -15,12 +15,14 @@ public class StartGame extends AGameState {
 		for (IconsNumbers iconsNumbers : IconsNumbers.values())
 			iconsNumbers.clearIconsList();
 
+		Model.INSTANCE.setUpNewGame();
+
 	}
 
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		Model.INSTANCE.setUpNewGame();
+		Model.INSTANCE.startNewGame();
 		Flow.INSTANCE.executeGameState(StartNewTurn.class);
 
 	}

@@ -46,6 +46,13 @@ public enum Model {
 
 	}
 
+	public void startNewGame() {
+
+		resolveDiamonds(8);
+		setNewRoyal();
+
+	}
+
 	public void setUpNewGame() {
 
 		Lists.INSTANCE.loadListsOriginal();
@@ -86,14 +93,6 @@ public enum Model {
 
 		for (CardJester cardJester : Lists.INSTANCE.jesters)
 			cardJester.getImageView().setVisible(true);
-
-		// draw starting hand
-
-		resolveDiamonds(8);
-
-		// set new royal
-
-		setNewRoyal();
 
 	}
 

@@ -10,7 +10,8 @@ public class RestartGame extends AGameState {
 
 		concealText();
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-		
+		Flow.INSTANCE.getFlow().clear();
+
 		Flow.INSTANCE.executeGameState(StartGame.class);
 
 	}

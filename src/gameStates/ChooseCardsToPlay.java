@@ -37,27 +37,19 @@ public class ChooseCardsToPlay extends AGameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		if (eText.equals(EText.CONTINUE)) {
+		ArrayList<IImageViewAble> listImageViewAbles = SelectImageViewManager.INSTANCE
+				.getSelectedImageViewAbles();
 
-			ArrayList<IImageViewAble> listImageViewAbles = SelectImageViewManager.INSTANCE
-					.getSelectedImageViewAbles();
+		ArrayList<ACard> list = new ArrayList<>();
 
-			ArrayList<ACard> list = new ArrayList<>();
+		for (IImageViewAble imageViewAble : listImageViewAbles)
+			list.addLast((ACard) imageViewAble);
 
-			for (IImageViewAble imageViewAble : listImageViewAbles)
-				list.addLast((ACard) imageViewAble);
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+		Model.INSTANCE.setCardsPlayedThisTurn(list);
 
-			SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-			Model.INSTANCE.setCardsPlayedThisTurn(list);
+		Flow.INSTANCE.proceed();
 
-			Flow.INSTANCE.proceed();
-
-		} else if (eText.equals(EText.PLAY_JESTER)) {
-
-			Model.INSTANCE.playJester();
-			showText();
-
-		}
 	}
 
 	private void handleCardIsNotSelected(ACard card) {
@@ -134,9 +126,6 @@ public class ChooseCardsToPlay extends AGameState {
 
 		EText.PLAY_CARDS.show();
 
-		if (!Lists.INSTANCE.jesters.getArrayList().isEmpty())
-			EText.PLAY_JESTER.show();
-
 		EText eText = null;
 
 		if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() == 0)
@@ -145,6 +134,15 @@ public class ChooseCardsToPlay extends AGameState {
 			eText = EText.CONTINUE;
 
 		eText.show();
+
+	}
+
+	@Override
+	public void handleJesterPressed() {
+
+		concealText();
+		Model.INSTANCE.playJester();
+		showText();
 
 	}
 
