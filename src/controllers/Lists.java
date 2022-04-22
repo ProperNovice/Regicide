@@ -77,8 +77,9 @@ public enum Lists {
 
 		this.jesters.getListCredentials().coordinatesList = Credentials.INSTANCE.cJesters;
 		this.jesters.getListCredentials().layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
-		this.jesters.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
+		this.jesters.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.jesters.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
+		this.jesters.getListCredentials().showListSize = true;
 
 	}
 
