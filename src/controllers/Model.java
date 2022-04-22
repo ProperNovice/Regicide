@@ -2,6 +2,7 @@ package controllers;
 
 import card.ACard;
 import card.CardCastle;
+import card.CardJester;
 import enums.ESuit;
 import enums.EValue;
 import utils.ArrayList;
@@ -29,7 +30,7 @@ public enum Model {
 				.addAllFirst(Lists.INSTANCE.hand.getArrayList().clear());
 
 		Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
-		
+
 		resolveDiamonds(8);
 
 	}
@@ -80,6 +81,11 @@ public enum Model {
 			card.getImageView().flipBack();
 
 		Lists.INSTANCE.deckCastle.relocateImageViews();
+
+		// prepare jester
+
+		for (CardJester cardJester : Lists.INSTANCE.jesters)
+			cardJester.getImageView().setVisible(true);
 
 		// set new royal
 
