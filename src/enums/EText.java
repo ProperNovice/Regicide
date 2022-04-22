@@ -20,6 +20,7 @@ public enum EText {
 	DISCARD_CARDS("Discard cards", TextTypeEnum.INDICATOR),
 	VOID("", TextTypeEnum.INDICATOR),
 	START_GAME("Start game", TextTypeEnum.OPTION),
+	SKIP("Skip", TextTypeEnum.OPTION),
 
 	;
 

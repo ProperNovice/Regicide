@@ -12,6 +12,8 @@ import utils.SelectImageViewManager;
 
 public class RoyalAttack extends AGameState {
 
+	private boolean skipAttack = false;
+
 	@Override
 	public void execute() {
 
@@ -29,8 +31,13 @@ public class RoyalAttack extends AGameState {
 
 	@Override
 	protected void handleCardPressedHand(ACard card) {
+
+		if (this.skipAttack)
+			return;
+
 		card.reverseSelectImageView();
 		showText();
+
 	}
 
 	@Override
@@ -53,10 +60,13 @@ public class RoyalAttack extends AGameState {
 
 		if (royalAttack == 0) {
 
-			EText.CONTINUE.show();
+			EText.SKIP.show();
+			this.skipAttack = true;
 			return;
 
 		}
+
+		this.skipAttack = false;
 
 		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
 			EText.DISCARD_CARDS.show();
