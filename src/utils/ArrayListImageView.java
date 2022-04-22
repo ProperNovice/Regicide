@@ -63,8 +63,6 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 		return t;
 
 	}
-	
-	
 
 	@Override
 	public void loadOriginal() {
