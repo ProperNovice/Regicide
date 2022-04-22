@@ -26,10 +26,14 @@ public enum Model {
 
 		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
 
-		Lists.INSTANCE.discardPileTavern.getArrayList()
-				.addAllFirst(Lists.INSTANCE.hand.getArrayList().clear());
+		if (!Lists.INSTANCE.hand.getArrayList().isEmpty()) {
 
-		Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
+			Lists.INSTANCE.discardPileTavern.getArrayList()
+					.addAllFirst(Lists.INSTANCE.hand.getArrayList().clear());
+
+			Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
+
+		}
 
 		resolveDiamonds(8);
 
@@ -215,9 +219,10 @@ public enum Model {
 			card.getImageView().flip();
 
 			Lists.INSTANCE.hand.getArrayList().addFirst(card);
-			Lists.INSTANCE.hand.animateSynchronousLock();
 
 		}
+
+		Lists.INSTANCE.hand.animateSynchronousLock();
 
 	}
 

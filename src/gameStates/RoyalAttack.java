@@ -85,7 +85,9 @@ public class RoyalAttack extends AGameState {
 
 	private boolean gameIsLost() {
 
-		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
+		if (!Lists.INSTANCE.jesters.getArrayList().isEmpty())
+			return false;
+		else if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
 			return false;
 		else if (!Lists.INSTANCE.jesters.getArrayList().isEmpty())
 			return false;
