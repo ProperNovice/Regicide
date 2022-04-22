@@ -47,18 +47,15 @@ public enum InstantiateComponents {
 
 			}
 
+		for (int counter = 1; counter <= 2; counter++)
+			Lists.INSTANCE.jesters.getArrayList().addFirst(new CardJester());
+
 		Lists.INSTANCE.deckTavern.getArrayList().saveOriginal();
 		Lists.INSTANCE.deckCastle.getArrayList().saveOriginal();
+		Lists.INSTANCE.jesters.getArrayList().saveOriginal();
 
 		Lists.INSTANCE.deckTavern.relocateImageViews();
 		Lists.INSTANCE.deckCastle.relocateImageViews();
-
-		// jester
-
-		for (int counter = 1; counter <= 2; counter++)
-			Lists.INSTANCE.jesters.getArrayList().addFirst(new CardJester());
-		
-		Lists.INSTANCE.jesters.getArrayList().saveOriginal();
 		Lists.INSTANCE.jesters.relocateImageViews();
 
 	}

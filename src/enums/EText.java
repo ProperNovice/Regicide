@@ -10,6 +10,7 @@ public enum EText {
 	YOU_WON("You won", TextTypeEnum.INDICATOR),
 	YOU_LOST("You lost", TextTypeEnum.INDICATOR),
 	PLAY_CARDS("Play cards", TextTypeEnum.INDICATOR),
+	PLAY_JESTER("Play jester", TextTypeEnum.OPTION),
 	RESOLVE_CLUBS("Resolve clubs", TextTypeEnum.INDICATOR),
 	RESOLVE_DIAMONDS("Resolve diamonds", TextTypeEnum.INDICATOR),
 	RESOLVE_HEARTS("Resolve hearts", TextTypeEnum.INDICATOR),

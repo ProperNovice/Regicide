@@ -2,6 +2,7 @@ package gameStates;
 
 import card.ACard;
 import controllers.IconsNumbers;
+import controllers.Lists;
 import controllers.Model;
 import enums.EText;
 import utils.ArrayList;
@@ -35,10 +36,19 @@ public class RoyalAttack extends AGameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() > 0)
-			Model.INSTANCE.discardHandCardsSelected();
+		if (eText.equals(EText.CONTINUE)) {
 
-		Flow.INSTANCE.proceed();
+			if (SelectImageViewManager.INSTANCE.sizeSelectImageViewAbles() > 0)
+				Model.INSTANCE.discardHandCardsSelected();
+
+			Flow.INSTANCE.proceed();
+
+		} else if (eText.equals(EText.PLAY_JESTER)) {
+
+			Model.INSTANCE.playJester();
+			showText();
+
+		}
 
 	}
 
@@ -57,7 +67,10 @@ public class RoyalAttack extends AGameState {
 
 		}
 
-		EText.DISCARD_CARDS.show();
+		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
+			EText.DISCARD_CARDS.show();
+
+		EText.PLAY_JESTER.show();
 
 		ArrayList<ACard> list = new ArrayList<>();
 
@@ -82,7 +95,13 @@ public class RoyalAttack extends AGameState {
 	}
 
 	private boolean gameIsLost() {
-		return IconsNumbers.ATTACK.getValue() > Model.INSTANCE.getTotalValueInHand();
+
+		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
+			return false;
+		else if (!Lists.INSTANCE.jesters.getArrayList().isEmpty())
+			return false;
+		else
+			return true;
 	}
 
 }

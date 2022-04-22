@@ -19,6 +19,21 @@ public enum Model {
 	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
 	private boolean performedRegicideThisTurn = false;
 
+	public void playJester() {
+
+		Lists.INSTANCE.jesters.getArrayList().removeFirst().getImageView().setVisible(false);
+
+		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+
+		Lists.INSTANCE.discardPileTavern.getArrayList()
+				.addAllFirst(Lists.INSTANCE.hand.getArrayList().clear());
+
+		Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
+		
+		resolveDiamonds(8);
+
+	}
+
 	public int getTotalValueInHand() {
 
 		int value = 0;

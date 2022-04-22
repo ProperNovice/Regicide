@@ -73,12 +73,12 @@ public class JUnit extends AGameState {
 
 	public void drawCardsToHand() {
 
-		transferCardFromDeckTavernToHand(ESuit.CLUBS, 5);
-		transferCardFromDeckTavernToHand(ESuit.SPADES, 5);
-		transferCardFromDeckTavernToHand(ESuit.HEARTS, 3);
-		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 1);
-		transferCardFromDeckTavernToHand(ESuit.CLUBS, 10);
-		transferCardFromDeckTavernToHand(ESuit.SPADES, 3);
+//		transferCardFromDeckTavernToHand(ESuit.CLUBS, 5);
+//		transferCardFromDeckTavernToHand(ESuit.SPADES, 5);
+//		transferCardFromDeckTavernToHand(ESuit.HEARTS, 3);
+//		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 1);
+//		transferCardFromDeckTavernToHand(ESuit.CLUBS, 10);
+//		transferCardFromDeckTavernToHand(ESuit.SPADES, 3);
 		transferCardFromDeckTavernToHand(ESuit.CLUBS, 1);
 		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 3);
 

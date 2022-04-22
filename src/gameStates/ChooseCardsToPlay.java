@@ -1,6 +1,7 @@
 package gameStates;
 
 import card.ACard;
+import controllers.Lists;
 import controllers.Model;
 import enums.EText;
 import utils.ArrayList;
@@ -12,7 +13,13 @@ public class ChooseCardsToPlay extends AGameState {
 
 	@Override
 	public void execute() {
-		showText();
+
+		if (Lists.INSTANCE.hand.getArrayList().isEmpty()
+				&& Lists.INSTANCE.jesters.getArrayList().isEmpty())
+			Flow.INSTANCE.proceed();
+		else
+			showText();
+
 	}
 
 	@Override
@@ -30,19 +37,27 @@ public class ChooseCardsToPlay extends AGameState {
 	@Override
 	protected void executeTextOption(EText eText) {
 
-		ArrayList<IImageViewAble> listImageViewAbles = SelectImageViewManager.INSTANCE
-				.getSelectedImageViewAbles();
+		if (eText.equals(EText.CONTINUE)) {
 
-		ArrayList<ACard> list = new ArrayList<>();
+			ArrayList<IImageViewAble> listImageViewAbles = SelectImageViewManager.INSTANCE
+					.getSelectedImageViewAbles();
 
-		for (IImageViewAble imageViewAble : listImageViewAbles)
-			list.addLast((ACard) imageViewAble);
+			ArrayList<ACard> list = new ArrayList<>();
 
-		SelectImageViewManager.INSTANCE.releaseSelectImageViews();
-		Model.INSTANCE.setCardsPlayedThisTurn(list);
+			for (IImageViewAble imageViewAble : listImageViewAbles)
+				list.addLast((ACard) imageViewAble);
 
-		Flow.INSTANCE.proceed();
+			SelectImageViewManager.INSTANCE.releaseSelectImageViews();
+			Model.INSTANCE.setCardsPlayedThisTurn(list);
 
+			Flow.INSTANCE.proceed();
+
+		} else if (eText.equals(EText.PLAY_JESTER)) {
+
+			Model.INSTANCE.playJester();
+			showText();
+
+		}
 	}
 
 	private void handleCardIsNotSelected(ACard card) {
@@ -118,6 +133,9 @@ public class ChooseCardsToPlay extends AGameState {
 	private void showText() {
 
 		EText.PLAY_CARDS.show();
+
+		if (!Lists.INSTANCE.jesters.getArrayList().isEmpty())
+			EText.PLAY_JESTER.show();
 
 		EText eText = null;
 
