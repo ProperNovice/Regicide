@@ -87,13 +87,13 @@ public enum Model {
 		for (CardJester cardJester : Lists.INSTANCE.jesters)
 			cardJester.getImageView().setVisible(true);
 
-		// set new royal
-
-		setNewRoyal();
-
 		// draw starting hand
 
 		resolveDiamonds(8);
+
+		// set new royal
+
+		setNewRoyal();
 
 	}
 

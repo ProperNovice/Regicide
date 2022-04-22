@@ -4,6 +4,7 @@ import card.ACard;
 import card.CardCastle;
 import controllers.Lists;
 import enums.ESuit;
+import enums.EValue;
 import utils.Flow;
 
 public class JUnit extends AGameState {
@@ -66,6 +67,7 @@ public class JUnit extends AGameState {
 
 		}
 
+		Lists.INSTANCE.deckCastle.getArrayList().getFirst().getImageView().flip();
 		Lists.INSTANCE.deckCastle.relocateImageViews();
 
 	}
@@ -80,6 +82,9 @@ public class JUnit extends AGameState {
 //		transferCardFromDeckTavernToHand(ESuit.SPADES, 3);
 		transferCardFromDeckTavernToHand(ESuit.CLUBS, 1);
 		transferCardFromDeckTavernToHand(ESuit.DIAMONDS, 3);
+
+		Lists.INSTANCE.hand.getArrayList().addLast(new CardCastle(ESuit.CLUBS, EValue.JACK));
+		Lists.INSTANCE.hand.getArrayList().getLast().getImageView().flip();
 
 		Lists.INSTANCE.hand.relocateImageViews();
 
