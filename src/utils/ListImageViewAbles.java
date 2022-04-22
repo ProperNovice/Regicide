@@ -7,9 +7,8 @@ import controllers.Lists;
 import utils.Enums.AnimationSynchEnum;
 import utils.Enums.ImageViewActionEnum;
 import utils.Interfaces.IImageViewAble;
-import utils.Interfaces.IUpdateAble;
 
-public class ListImageViewAbles<T> implements Iterable<T>, IUpdateAble {
+public class ListImageViewAbles<T> implements Iterable<T> {
 
 	private ArrayListImageView<T> arrayList = new ArrayListImageView<T>(() -> showListSize());
 	private ArrayList<IImageViewAble> quantityImageViewAbles = new ArrayList<>();
@@ -263,11 +262,6 @@ public class ListImageViewAbles<T> implements Iterable<T>, IUpdateAble {
 	@Override
 	public final Iterator<T> iterator() {
 		return this.arrayList.iterator();
-	}
-
-	@Override
-	public void update() {
-		showListSize();
 	}
 
 }

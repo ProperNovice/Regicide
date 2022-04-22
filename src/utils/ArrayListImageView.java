@@ -1,48 +1,54 @@
 package utils;
 
-import utils.Interfaces.IUpdateAble;
-
 public class ArrayListImageView<T> extends ArrayList<T> {
 
-	private IUpdateAble updateAble = null;
+	private Runnable runnable = null;
 
-	public ArrayListImageView(IUpdateAble updateAble) {
-		this.updateAble = updateAble;
+	public ArrayListImageView(Runnable runnable) {
+		this.runnable = runnable;
 	}
 
 	@Override
 	public void add(int index, T element) {
+
 		super.add(index, element);
 		runDuplicateProtection();
-		update();
+		this.runnable.run();
+
 	}
 
 	@Override
 	public void addFirst(T element) {
+
 		super.addFirst(element);
 		runDuplicateProtection();
-		update();
+		this.runnable.run();
+
 	}
 
 	@Override
 	public void addLast(T e) {
+
 		super.addLast(e);
 		runDuplicateProtection();
-		update();
+		this.runnable.run();
+
 	}
 
 	@Override
 	public void set(int index, T element) {
+
 		super.set(index, element);
 		runDuplicateProtection();
-		update();
+		this.runnable.run();
+
 	}
 
 	@Override
 	public T remove(int index) {
 
 		T t = super.remove(index);
-		update();
+		this.runnable.run();
 
 		return t;
 
@@ -50,15 +56,17 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 
 	@Override
 	public void remove(T t) {
+
 		super.remove(t);
-		update();
+		this.runnable.run();
+
 	}
 
 	@Override
 	public T removeRandom() {
 
 		T t = super.removeRandom();
-		update();
+		this.runnable.run();
 
 		return t;
 
@@ -66,23 +74,22 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 
 	@Override
 	public void loadOriginal() {
+
 		super.loadOriginal();
-		update();
+		this.runnable.run();
+
 	}
 
 	@Override
 	public void loadState() {
+
 		super.loadState();
-		update();
+		this.runnable.run();
+
 	}
 
 	private void runDuplicateProtection() {
 		RealTimeDuplicateProtection.INSTANCE.executeDuplicateProtect();
-	}
-
-	private void update() {
-//		AnimationTimerFX.INSTANCE.updateNextFrame(this.updateAble);
-		this.updateAble.update();
 	}
 
 }
