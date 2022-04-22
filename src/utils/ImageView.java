@@ -18,7 +18,7 @@ public class ImageView implements INode {
 	private IEventHandlerAble eventHandlerAble = null;
 	private AnimationExecutionObject animationExecutionObject = null;
 	private boolean isVisible = true;
-	private Vector2 selectImageViewAbleRatio = new Vector2(0.5, 0.5);
+	private Vector2 selectImageViewAbleRatioPosition = new Vector2(0.5, 0.5);
 
 	public ImageView(String filePath, Object object) {
 		createImageView(new Image(filePath), ELayerZ.DEFAULT, object);
@@ -252,7 +252,7 @@ public class ImageView implements INode {
 	}
 
 	public void setSelectImageViewAbleRatioPosition(Vector2 vector2) {
-		this.selectImageViewAbleRatio = vector2;
+		this.selectImageViewAbleRatioPosition = vector2;
 	}
 
 	public void setSelectImageViewAbleRatioDimensions(double value) {
@@ -343,7 +343,7 @@ public class ImageView implements INode {
 	}
 
 	public Vector2 getSelectImageViewAbleRatioPosition() {
-		return this.selectImageViewAbleRatio;
+		return this.selectImageViewAbleRatioPosition;
 	}
 
 	public double getSelectImageViewAbleRatioDimensions() {
