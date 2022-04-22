@@ -137,7 +137,7 @@ public enum Model {
 
 		this.performedRegicideThisTurn = false;
 
-		int attack = getTotalAttackPlayed();
+		int attack = getTotalValuePlayed();
 		int castleHealth = IconsNumbers.HEALTH.getValue();
 
 		int healthRemaining = castleHealth - attack;
@@ -168,27 +168,6 @@ public enum Model {
 				.addAllFirst(Lists.INSTANCE.cardsPlayed.getArrayList().clear());
 
 		Lists.INSTANCE.discardPileTavern.animateSynchronousLock();
-
-	}
-
-	public int getTotalAttackPlayed() {
-
-		int value = getTotalValuePlayed();
-
-		if (Lists.INSTANCE.deckCastle.getArrayList().getFirst().getESuit().equals(ESuit.CLUBS))
-			return value;
-
-		for (ACard card : this.cardsPlayedThisTurn) {
-
-			if (!card.getESuit().equals(ESuit.CLUBS))
-				continue;
-
-			value *= 2;
-			break;
-
-		}
-
-		return value;
 
 	}
 
@@ -249,14 +228,23 @@ public enum Model {
 
 	}
 
-	private int getTotalValuePlayed() {
+	public int getTotalValuePlayed() {
 
-		int value = 0;
+		int value = 0, multiplication = 1;
 
-		for (ACard card : this.cardsPlayedThisTurn)
+		for (ACard card : this.cardsPlayedThisTurn) {
+
 			value += card.getValue();
 
-		return value;
+			if (card.getESuit().equals(ESuit.CLUBS))
+				multiplication = 2;
+
+		}
+
+		if (Lists.INSTANCE.deckCastle.getArrayList().getFirst().getESuit().equals(ESuit.CLUBS))
+			return value;
+
+		return value * multiplication;
 
 	}
 

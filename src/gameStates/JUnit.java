@@ -66,7 +66,8 @@ public class JUnit extends AGameState {
 
 		}
 
-		Lists.INSTANCE.deckCastle.getArrayList().getFirst().getImageView().flip();
+		System.out.println("a");
+		Lists.INSTANCE.deckCastle.getArrayList().getFirst().getImageView().flipFront();
 		Lists.INSTANCE.deckCastle.relocateImageViews();
 
 	}

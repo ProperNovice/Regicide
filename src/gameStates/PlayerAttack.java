@@ -10,7 +10,7 @@ public class PlayerAttack extends AGameState {
 	public void execute() {
 
 		EText.PLAYER_PHASE.show();
-		EText.ATTACK.showAdditionally(Model.INSTANCE.getTotalAttackPlayed());
+		EText.ATTACK.showAdditionally(Model.INSTANCE.getTotalValuePlayed());
 		EText.CONTINUE.show();
 
 	}
