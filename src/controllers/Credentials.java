@@ -63,7 +63,9 @@ public enum Credentials {
 		// discard pile tavern
 
 		x = this.gapBetweenBorders;
+		x += this.dCard.x / 2;
 		y = this.gapBetweenBorders;
+		y += this.dCard.y / 2;
 		this.cDiscardPileTavern = new Vector2(x, y);
 
 		// deck tavern
@@ -131,7 +133,7 @@ public enum Credentials {
 
 		// jester
 
-		x = (this.cDeckCastle.x + this.cDeckTavern.x) / 2 - this.dCard.x / 4;
+		x = (this.cDeckCastle.x + this.cDeckTavern.x) / 2;
 		y = this.cDiscardPileTavern.y;
 		this.cJesters = new Vector2(x, y);
 

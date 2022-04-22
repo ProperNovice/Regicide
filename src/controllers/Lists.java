@@ -36,6 +36,7 @@ public enum Lists {
 		this.deckTavern.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.deckTavern
 				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
+		this.deckTavern.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.deckTavern.getListCredentials().showListSize = true;
 
 		// discard pile tavern
@@ -47,6 +48,7 @@ public enum Lists {
 		this.discardPileTavern.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.discardPileTavern
 				.getListCredentials().layerZListEnum = LayerZListEnum.TO_FRONT_FIRST_IMAGEVIEW;
+		this.discardPileTavern.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.discardPileTavern.getListCredentials().showListSize = true;
 
 		// deck castle
@@ -75,7 +77,8 @@ public enum Lists {
 
 		this.jesters.getListCredentials().coordinatesList = Credentials.INSTANCE.cJesters;
 		this.jesters.getListCredentials().layerZListEnum = LayerZListEnum.TO_BACK_FIRST_IMAGEVIEW;
-		this.jesters.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
+		this.jesters.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
+		this.jesters.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 
 	}
 
