@@ -78,6 +78,7 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	public void loadOriginal() {
 
 		super.loadOriginal();
+		runDuplicateProtection();
 		this.runnable.run();
 
 	}
@@ -86,6 +87,7 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	public void loadState() {
 
 		super.loadState();
+		runDuplicateProtection();
 		this.runnable.run();
 
 	}

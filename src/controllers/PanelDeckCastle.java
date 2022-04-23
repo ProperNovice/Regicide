@@ -67,6 +67,7 @@ public enum PanelDeckCastle implements IImageViewAble {
 
 		getImageView().setVisible(false);
 
+		Lists.INSTANCE.panelDeckCastle.getArrayList().clear();
 		Lists.INSTANCE.deckCastle.getArrayList().loadState();
 
 		for (CardCastle cardCastle : Lists.INSTANCE.deckCastle) {
