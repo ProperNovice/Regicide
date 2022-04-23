@@ -243,8 +243,8 @@ public enum Model {
 
 		if (Lists.INSTANCE.deckCastle.getArrayList().getFirst().getESuit().equals(ESuit.CLUBS))
 			return value;
-
-		return value * multiplication;
+		else
+			return value * multiplication;
 
 	}
 
