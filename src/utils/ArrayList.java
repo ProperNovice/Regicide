@@ -139,8 +139,11 @@ public class ArrayList<T> implements Iterable<T>, ISaveLoadStateAble {
 		return this.list.remove(index);
 	}
 
-	public void remove(T t) {
+	public T remove(T t) {
+
 		this.list.remove(t);
+		return t;
+
 	}
 
 	public void shuffle() {

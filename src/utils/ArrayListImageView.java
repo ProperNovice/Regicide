@@ -55,10 +55,12 @@ public class ArrayListImageView<T> extends ArrayList<T> {
 	}
 
 	@Override
-	public void remove(T t) {
+	public T remove(T t) {
 
 		super.remove(t);
 		this.runnable.run();
+
+		return t;
 
 	}
 
