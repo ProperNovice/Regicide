@@ -1,11 +1,14 @@
 package gameStates;
 
+import controllers.Model;
 import utils.Flow;
 
 public class StartNewTurn extends AGameState {
 
 	@Override
 	public void execute() {
+
+		Model.INSTANCE.clearCardsPlayedThisTurn();
 
 		Flow.INSTANCE.getFlow().addLast(ChooseCardsToPlay.class);
 		Flow.INSTANCE.getFlow().addLast(ResolveHearts.class);

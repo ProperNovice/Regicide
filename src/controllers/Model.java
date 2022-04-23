@@ -20,6 +20,10 @@ public enum Model {
 	private ArrayList<ACard> cardsPlayedThisTurn = new ArrayList<>();
 	private boolean performedRegicideThisTurn = false;
 
+	public void clearCardsPlayedThisTurn() {
+		this.cardsPlayedThisTurn.clear();
+	}
+
 	public void playJester() {
 
 		Lists.INSTANCE.jesters.getArrayList().removeFirst().getImageView().setVisible(false);
