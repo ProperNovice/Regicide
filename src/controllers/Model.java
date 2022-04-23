@@ -239,9 +239,9 @@ public enum Model {
 
 			value += card.getValue();
 
-			if(!countingClubs)
+			if (!countingClubs)
 				continue;
-			
+
 			if (card.getESuit().equals(ESuit.CLUBS))
 				multiplication = 2;
 
