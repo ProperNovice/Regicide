@@ -228,6 +228,32 @@ public enum Model {
 
 	}
 
+	public int getTotalValueSelected(boolean countingClubs) {
+
+		int value = 0, multiplication = 1;
+
+		for (IImageViewAble imageViewAble : SelectImageViewManager.INSTANCE
+				.getSelectedImageViewAbles()) {
+
+			ACard card = (ACard) imageViewAble;
+
+			value += card.getValue();
+
+			if(!countingClubs)
+				continue;
+			
+			if (card.getESuit().equals(ESuit.CLUBS))
+				multiplication = 2;
+
+		}
+
+		if (Lists.INSTANCE.deckCastle.getArrayList().getFirst().getESuit().equals(ESuit.CLUBS))
+			return value;
+		else
+			return value * multiplication;
+
+	}
+
 	public int getTotalValuePlayed() {
 
 		int value = 0, multiplication = 1;

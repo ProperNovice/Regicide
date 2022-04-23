@@ -68,8 +68,12 @@ public class RoyalAttack extends AGameState {
 
 		this.skipAttack = false;
 
-		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand())
+		if (IconsNumbers.ATTACK.getValue() <= Model.INSTANCE.getTotalValueInHand()) {
+
 			EText.DISCARD_CARDS.show();
+			EText.DEFENCE_INDICATOR.showAdditionally(Model.INSTANCE.getTotalValueSelected(false));
+
+		}
 
 		ArrayList<ACard> list = new ArrayList<>();
 

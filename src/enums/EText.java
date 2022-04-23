@@ -21,6 +21,8 @@ public enum EText {
 	VOID("", TextTypeEnum.INDICATOR),
 	START_GAME("Start game", TextTypeEnum.OPTION),
 	SKIP("Skip", TextTypeEnum.OPTION),
+	ATTACK_INDICATOR("Attack -> ", TextTypeEnum.INDICATOR),
+	DEFENCE_INDICATOR("Defence -> ", TextTypeEnum.INDICATOR),
 
 	;
 
