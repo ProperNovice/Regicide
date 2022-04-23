@@ -15,7 +15,7 @@ public enum Lists {
 
 	public final ArrayList<ArrayList<? extends Object>> lists = new ArrayList<ArrayList<? extends Object>>();
 	public ListImageViewAbles<ACard> hand, deckTavern, discardPileTavern, cardsPlayed;
-	public ListImageViewAbles<CardCastle> deckCastle;
+	public ListImageViewAbles<CardCastle> deckCastle, panelDeckCastle;
 	public ListImageViewAbles<CardJester> jesters;
 
 	public void instantiate() {
@@ -80,6 +80,16 @@ public enum Lists {
 		this.jesters.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.STATIC;
 		this.jesters.getListCredentials().relocateTypeEnum = RelocateTypeEnum.CENTER;
 		this.jesters.getListCredentials().showListSize = true;
+
+		// panel deck castle
+
+		this.panelDeckCastle = new ListImageViewAbles<>();
+
+		this.panelDeckCastle
+				.getListCredentials().coordinatesList = Credentials.INSTANCE.cPanelDeckCastle;
+		this.panelDeckCastle.getListCredentials().rearrangeTypeEnum = RearrangeTypeEnum.PIVOT;
+		this.panelDeckCastle
+				.getListCredentials().gapBetweenComponents.x = Credentials.INSTANCE.dCard.x / 4;
 
 	}
 

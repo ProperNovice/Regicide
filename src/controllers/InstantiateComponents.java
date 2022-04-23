@@ -15,6 +15,8 @@ public enum InstantiateComponents {
 
 		createCards();
 		createIcons();
+		
+		PanelDeckCastle.INSTANCE.getImageView();
 
 	}
 

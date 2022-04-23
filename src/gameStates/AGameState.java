@@ -2,6 +2,7 @@ package gameStates;
 
 import card.ACard;
 import controllers.Lists;
+import controllers.PanelDeckCastle;
 import enums.EText;
 import javafx.scene.input.KeyCode;
 import utils.KeyCodeHandler;
@@ -54,7 +55,9 @@ public abstract class AGameState {
 			card.print();
 			handleCardPressedHand(card);
 
-		}
+		} else if (Lists.INSTANCE.deckCastle.getArrayList().contains(card)
+				|| Lists.INSTANCE.panelDeckCastle.getArrayList().contains(card))
+			handleCardPressedDeckCastle();
 
 	}
 
@@ -64,6 +67,10 @@ public abstract class AGameState {
 
 	public void handleJesterPressed() {
 
+	}
+
+	private void handleCardPressedDeckCastle() {
+		PanelDeckCastle.INSTANCE.handlePanel();
 	}
 
 }
