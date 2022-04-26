@@ -125,7 +125,7 @@ public class ChooseCardsToPlay extends AGameState {
 	private void showText() {
 
 		EText.PLAY_CARDS.show();
-		EText.ATTACK_INDICATOR.showAdditionally(Model.INSTANCE.getTotalValueSelected(true));
+		EText.VALUE_INDICATOR.showAdditionally(Model.INSTANCE.getTotalValueSelected(true));
 
 		EText eText = null;
 
