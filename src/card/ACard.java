@@ -25,7 +25,7 @@ public abstract class ACard implements IImageViewAble, IEventHandlerAble {
 
 		String path = "";
 		path += this.eSuit.toString();
-		path.toLowerCase();
+		path = path.toLowerCase();
 		path += "/";
 		path += eValue.getValue();
 		path += ".png";
